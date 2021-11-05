@@ -1,130 +1,53 @@
-# Neural_Network_Charity_Analysis
+# Overview of Neural Network Charity Analysis
 
-# Overview of Credit Risk Analysis
 
-### The Analysis of credit risk involves unbalanced classifications. Low risk customers outnumber the high risk loans. The imbalanced-learn and scikit-learn libraries will be used to build models and evaluate them with resampling to predict credit risk.
-### The credit card credit dataset from LendingClub will be analyzed with two oversampling and one undersampling algorithms and the results from machine learning models will be compared. Next two ensemble models will be used and the performance evaluated. All the results and the summary will focus on the high risk outcome since that is what is of interest in credit risk analyses.
+### Machine learning and neural networks will be used for the provided dataset to help Beks create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup. The neural network results will be saved in an HDF5 file. After the first run the model will be attempted to be optimized 3 different ways to increase the accurace of the model.
 
 <br/>
 
-## Results: Deliverable 1: Use Resampling Models to Predict Credit Risk 
+## Results: Deliverable 1: Preprocessing Data for a Neural Network Model 
 
 <br/>
 
--   RandomOverSampler 
+-   What variable(s) are considered the target(s) for your model? 
 
-#### The accuracy not great with the Random Over Sampler model (65%). Only 70 of the 101 high risk category are correctly classified (Recall = 69%). The precision (1%) is very low due to a very imbalanced data set with such high number of low risk clients. The F1 score is really low as well (0.02) which indicates a model that is not great for predicting high risk loans.
-    
--       Accuracy score
-    ![ROS accuracy](./Resources/ros_accuracy.png) 
+    #### The binary variable "IS_SUCCESSFUL" is the target feature for the model. So the model wil be predicting is the money was used effectively.
 
--       Confusion matrix
-    ![ROS matrix](./Resources/ros_matrix.png) 
+``` python
+    y = application_df["IS_SUCCESSFUL"].values
+```
 
--       Imbalanced classification report
-    ![ROS report](./Resources/ros_report.png) 
+-   What variable(s) are considered to be the features for your model? 
 
-<br/>
-<br/>
+    #### The feature variables under consideration for the model are APPLICATION_TYPE, AFFILLIATION, ClASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT
 
--   SMOTE 
-
-#### The accuracy not great with the Synthetic Minority Oversampling Technique (SMOTE) model (66%). Only 64 of the 101 high risk category are correctly classified (Recall = 63%). The precision (1%) is very low due to a very imbalanced data set with such high number of low risk clients. The F1 score is really low as well (0.02) which indicates a model that is not great for predicting high risk loans. This model is worse that the Random Over Sampler.
-
-       Accuracy score
-  
-  ![SMO accuracy](./Resources/smo_accuracy.png) 
-
--       Confusion matrix
-    ![SMOTE matrix](./Resources/smo_matrix.png) 
-
--       Imbalanced classification report
-    ![SMOTE report](./Resources/smo_report.png) 
-
-<br/>
-<br/>
-
--   ClusterCentroids
-
-#### The accuracy even lower with the Cluster Centroid model (54%). Only 70 of the 101 high risk category are correctly classified (Recall = 69%). Again the precision (1%) is very low due to a very imbalanced data set with such high number of low risk clients. The F1 score is really low as well (0.01) which indicates a model that is not great for predicting high risk loans. This model about the same as the Random Over Sampler.
-       
-   
--       Accuracy score
-
-    ![Cluster accuracy](./Resources/cc_accuracy.png) 
-
--       Confusion matrix
-
-    ![Cluster matrix](./Resources/cc_matrix.png) 
-
--       Imbalanced classification report
-
-    ![Cluster report](./Resources/cc_report.png)
+    #### The two columns with mode than 10 categories (APPLICATION_TYPE and CLASSIFICATION) were binned into fewer categories.
 
 <br/>
 
-## Results: Deliverable 2: Use the SMOTEENN algorithm to Predict Credit Risk
+-   APPLICATION_TYPE categories
+    ![APP classes](./Resources/appFirst.png) 
 
 <br/>
 
--   SMOTEENN 
-
-
-#### The accuracy even lower with the SMOTEENN model (54%). 79 of the 101 high risk category are correctly classified (Recall = 78%). This is an improvement over the previous 3 models. Again the precision (1%) is very low due to a very imbalanced data set with such high number of low risk clients. The F1 score is really low as well (0.02) which indicates a model that is not great for predicting high risk loans. The recall is getting a little better but the F1 score is not improving. 
-       
-    
--       Accuracy score
-    ![SMOTEEN accuracy](./Resources/teen_accuracy.png) 
-
--       Confusion matrix
-    ![SMOTEEN matrix](./Resources/teen_matrix.png) 
-
--       Imbalanced classification report
-    ![SMOTEEN report](./Resources/teen_report.png) 
-
+-   CLASSIFICATION categories
+![CLASS classes](./Resources/classFirst.png) 
 
 <br/>
 
-## Results: Deliverable 3: Use Ensemble Classifiers to Predict Credit Risk
+-   What variable(s) are neither targets nor features, and should be removed from the input data? 
+
+    #### The variables EIN and NAME are not considered as features or targets. They are names and ID's that don't add any information as to whether the money use is successful
+
+
+
 
 <br/>
-
--   Balanced Random Forest Classifier 
-
-#### The accuracy has improved a bit with the Balanced Random Forest model (79%). 71 of the 101 high risk category are correctly classified (Recall = 70%). This is not too bad at finding the true high risk outcomes. Again the precision (3%) is very low due to a very imbalanced data set with such high number of low risk clients. The F1 score is really low  but getting better (0.06) which indicates a model that is not great for predicting high risk loans. The recall is getting a little better but the F1 score has only improved slightly. 
-       
-    
--       Accuracy score
-    ![BRF accuracy](./Resources/rf_accuracy.png) 
-
--       Confusion matrix
-    ![BRF matrix](./Resources/rf_matrix.png) 
-
--       Imbalanced classification report
-    ![BRF report](./Resources/rf_report.png) 
-
--       Importance list report
-    ![BRF report](./Resources/rf_import.png) 
-
 <br/>
-
--   Easy Ensemble AdaBoost Classifier 
-    
-#### The accuracy has improved quite a bit with the Easy Ensemble model (93%). 93 of the 101 high risk category are correctly classified (Recall = 92%). This much better at finding the true high risk outcomes. Again the precision (9%) is very low due to a very imbalanced data set with such high number of low risk clients. The F1 score is low but has improved (0.16) which indicates a model that is a little better than all the other models for predicting high risk loans. The recall is quite good and the F1 score has improved slightly. 
-       
--       Accuracy score
-    ![EE accuracy](./Resources/ee_accuracy.png) 
-
--       Confusion matrix
-    ![EE matrix](./Resources/ee_matrix.png) 
-
--       Imbalanced classification report
-    ![EE report](./Resources/ee_report.png) 
-
 <br/>
-
-## Summary
-
+<br/>
+<br/>
+<br/>
 <br/>
 
 #### The Credit Risk data set requires addressing the class inbalance of the high risk and low risk loans. There are 101 high risk vs 17,104 low risk loans. It would be fairly easy to predict the low risk loans but it is of much more importance to a Credit company to determine high risk loans. 
