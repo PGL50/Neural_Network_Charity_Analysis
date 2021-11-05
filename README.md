@@ -73,30 +73,30 @@
 
 <br/>
 
--   Deliverable 1 model achieved 72.9% accuracy.
+-   Deliverable 2: model achieved 72.9% accuracy.
 
     ![Model 1](./Resources/model1.png) 
 
 <br/>
 
--   Deliverable 2 model achieved 70.5% accuracy.
+-   Deliverable 3: 1st changed model achieved 70.5% accuracy.
 
     ![Model 2](./Resources/model2.png) 
 
 <br/>
 
--   Deliverable 3 model achieved 70.7% accuracy.
+-   Deliverable 3: 2nd changed model achieved 70.7% accuracy.
 
     ![Model 3](./Resources/model3.png) 
 
 <br/>
 
--   Deliverable 4 model achieved 70.7% accuracy.
+-   Deliverable 3: 3rd changed model achieved 70.7% accuracy.
 
     ![Model 4](./Resources/model4.png) 
 
 
--   What variable(s) are neither targets nor features, and should be removed from the input data? 
+-   What steps did you take to try and increase model performance? 
 
     #### The variables EIN and NAME are not considered as features or targets. They are names and ID's that don't add any information as to whether the money use is successful.
 
