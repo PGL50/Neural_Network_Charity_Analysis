@@ -69,22 +69,32 @@
 
 -   Were you able to achieve the target model performance (75% accuracy)?
 
-    #### The feature variables under consideration for the model are APPLICATION_TYPE, AFFILLIATION, ClASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
-
-    #### The two columns with mode than 10 categories (APPLICATION_TYPE and CLASSIFICATION) were binned into fewer categories.
+    #### The target perfomance was not achieved.
 
 <br/>
 
--   APPLICATION_TYPE categories
+-   Deliverable 1 model achieved 72.9% accuracy.
 
-    ![APP classes](./Resources/appFirst.png) 
+    ![Model 1](./Resources/model1.png) 
+
+<br/>
+
+-   Deliverable 2 model achieved 70.5% accuracy.
+
+    ![Model 2](./Resources/model2.png) 
 
 <br/>
 
--   CLASSIFICATION categories
-![CLASS classes](./Resources/classFirst.png) 
+-   Deliverable 3 model achieved 70.7% accuracy.
+
+    ![Model 3](./Resources/model3.png) 
 
 <br/>
+
+-   Deliverable 4 model achieved 70.7% accuracy.
+
+    ![Model 4](./Resources/model4.png) 
+
 
 -   What variable(s) are neither targets nor features, and should be removed from the input data? 
 
