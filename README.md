@@ -1,7 +1,7 @@
 # Overview of Neural Network Charity Analysis
 
 
-### Machine learning and neural networks will be used for the provided dataset to help Beks create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup. The neural network results will be saved in an HDF5 file. After the first run the model will be attempted to be optimized 3 different ways to increase the accurace of the model.
+### Machine learning and neural networks will be used for the provided dataset to help create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup. The neural network results will be saved in an HDF5 file. After the first run the model will be attempted to be optimized 3 different ways to increase the accurace of the model.
 
 <br/>
 
