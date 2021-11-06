@@ -93,7 +93,7 @@
 
 -   Deliverable 3: 3rd changed model achieved 70.8% accuracy.
 
-    ![Model 4](./Resources/model4.png) 
+       ![Model 4](./Resources/model4.png) 
 
 
 -   What steps did you take to try and increase model performance? 
@@ -108,29 +108,53 @@
     <br/>
 
     3. For the third attempt I kept the previous changes and added to them. Here are the other changes: one more hidden layer was added, the number of neurons was lowered, and the number of epochs in the training layer was increased. The accuracy performed only slightly better: 70.8%.
-    
+
     <br/>
 
-    4. For the third attempt I kept the previous changes and added to them. Here are the other changes: one more hidden layer was added, the number of neurons was lowered, and the number of epochs in the training layer was increased. The accuracy performed only slightly better: 70.8%.
+    4. I then tried a fourth attempt that Farshad demonstrated during class using keras tuner. It contains a function that loops through numbers of neurons as well as 4 different activation functions for the hidden layers. The code is saved in a jupyter notebook in this GitHub link "AlphabetSoupCharity_Optimzation-TestTunerCode.ipynb". Below is the function. Even with this more complex method to choose neurons, hidden layes and epochs the accuracy and performance was still not great at 70.6%: 
+   
+<br/>
+
+![Model 3](./Resources/modeltuner.png) 
 
 <br/>
 
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+```python
+    # Create a method that creates a new Sequential model with hyperparameter options
+    def create_model(hp):
+            nn_model = tf.keras.models.Sequential()
+
+        # Allow kerastuner to decide which activation function to use in hidden layers
+        activation = hp.Choice('activation',['relu','tanh','sigmoid'])
+    
+        # Allow kerastuner to decide number of neurons in first layer
+        nn_model.add(tf.keras.layers.Dense(units=hp.Int('first_units',
+            min_value=50,
+            max_value=100,
+            step=2), activation=activation, input_dim=len(X_train[0])))
+
+        # Allow kerastuner to decide number of hidden layers and neurons in hidden layers
+        for i in range(hp.Int('num_layers', 1, 8)):
+            nn_model.add(tf.keras.layers.Dense(units=hp.Int('units_' + str(i),
+                min_value=1,
+                max_value=30,
+                step=2),
+                activation=activation))
+    
+        nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+
+        # Compile the model
+        nn_model.compile(loss="binary_crossentropy", optimizer='adam', metrics=["accuracy"])
+    
+    return nn_model
+```
+
 <br/>
 
-#### The Credit Risk data set requires addressing the class inbalance of the high risk and low risk loans. There are 101 high risk vs 17,104 low risk loans. It would be fairly easy to predict the low risk loans but it is of much more importance to a Credit company to determine high risk loans. 
+## Summary
+#### Overall the binary classifier model that was used to predict whether applicants will be successful if funded by Alphabet Soup did not perform as well as I had hoped. The initial model and the four other attempts did not improve the performance. The attempts included different binning of two of the variables with more than 10 classes. Other model modifications included varying the number of neurons per layer, varying the number of hidden layers, and changing the number of epochs. The best model only achieved 70.8% accuracy. 
 
+<br/>
 
-#### The first two models (RandomOverSampler and SMOTE) used over sampling techniques. The results are models with low F1 scores and only moderate recall. The SMOTE model may also be sensitive to outliers. The third model (ClusterCentroid) utilized undersampling of the low risk category. This model did not do much better than the oversampled models.
-
-#### The fourth model used a combinatorial approach of over- and undersampling (SMOTEENN). The accuracy was not improved but the recall did improve of the previous three models. The F1 score was very low though. 
-
-
-
-#### The final two models used Ensemble Classifiers: Balanced Random Forest Classifier and Easy Ensemble Classifier. Both of these employ bootstrap sampling to achieve the balances samples. The Random Forest classifier showed an improvement in recall but not much improvement of the F1 score. The Easy Ensemble classifier showed the best results of all six models with very high accuracy and recall. The F1 score is a weighted average of precision and recall and the relative contribution of each is equal. The F1 score is not great with all the models but in this case the trade off of recall is more important than precision. It is more important to detect the high risk loans. I'd recommend the Easy Ensemble as a good start to identify high risk loans. But I'd also recommend redoing the models with scaling all the features. There is a large range of measurements within the features. Income and loan amount are very large numbers while features like interest rate are very small numbers. This may improve the recall even more with the Easy Ensemble classifier.
+#### There may be other things to change to optimize the deep neural network model. There is a variable "INCOME_AMT" that is categorical. It has a lot of information but because it's not numeric it doesn't add much. It would be better if the data could include actual income amount as a numeric field. I would consider looking at the correlation of every variable with the IS_SUCCESSFUL target variable. This may give more information in the decision about whether to include them in the model. Maybe tne model could be run in a stepwise manner adding one variable at a time in the order of highest correlations.
