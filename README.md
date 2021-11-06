@@ -163,3 +163,5 @@
 ![des](./Resources/amtdes.png)          ![des](./Resources/amtcnt.png) 
 
 <br/>
+
+#### It seems like there is a lot more experience required to optimize deep neural networks. There are many other activation functions to be explored besides the ones attempted here.
