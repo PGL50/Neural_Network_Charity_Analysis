@@ -53,8 +53,8 @@
 ```python
     # Define the model - deep neural net, i.e., the number of input features and hidden nodes for each layer.
     number_input_features = len(X_train[0])
-    hidden_nodes_layer1 = 45
-    hidden_nodes_layer2 = 20
+    hidden_nodes_layer1 = 80
+    hidden_nodes_layer2 = 30
 
     # First hidden layer
     nn.add(tf.keras.layers.Dense(units=hidden_nodes_layer1, input_dim=number_input_features, 
@@ -91,17 +91,29 @@
 
 <br/>
 
--   Deliverable 3: 3rd changed model achieved 70.7% accuracy.
+-   Deliverable 3: 3rd changed model achieved 70.8% accuracy.
 
     ![Model 4](./Resources/model4.png) 
 
 
 -   What steps did you take to try and increase model performance? 
 
-    #### The variables EIN and NAME are not considered as features or targets. They are names and ID's that don't add any information as to whether the money use is successful.
+    #### Here are the steps I took after the inital model run:
+    1. I thought to make the model run better with less variance it would be good to cut down on the binning for APPLICATION_TYPE and CLASSIFICATION. It changed both of these into binary variables with the lagest category vs other. The other paramenters remained the same as in Deliverable 2. The accuracy didn't improve: 70.5%
+
+    <br/>
+
+    2. So to try to improve the model performance for the second try I kept the binary binning of attempt 1. For this attempt I changed the activation function from relu to tanh that might account for a different shape of the data. The accuracy performed only slightly better: 70.7%.
+    
+    <br/>
+
+    3. For the third attempt I kept the previous changes and added to them. Here are the other changes: one more hidden layer was added, the number of neurons was lowered, and the number of epochs in the training layer was increased. The accuracy performed only slightly better: 70.8%.
+    
+    <br/>
+
+    4. For the third attempt I kept the previous changes and added to them. Here are the other changes: one more hidden layer was added, the number of neurons was lowered, and the number of epochs in the training layer was increased. The accuracy performed only slightly better: 70.8%.
 
 <br/>
-
 
 
 <br/>
