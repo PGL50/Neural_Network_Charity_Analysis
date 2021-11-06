@@ -153,7 +153,13 @@
 <br/>
 
 ## Summary
-#### Overall the binary classifier model that was used to predict whether applicants will be successful if funded by Alphabet Soup did not perform as well as I had hoped. The initial model and the four other attempts did not improve the performance. The attempts included different binning of two of the variables with more than 10 classes. Other model modifications included varying the number of neurons per layer, varying the number of hidden layers, and changing the number of epochs. The best model only achieved 72.9% accuracy. 
+#### Overall the binary classifier model that was used to predict whether applicants will be successful if funded by Alphabet Soup did not perform as well as I had hoped. The initial model and the four other attempts did not improve the performance. The attempts included different binning of two of the variables with more than 10 classes. Other model modifications included varying the number of neurons per layer, varying the number of hidden layers, and changing the number of epochs. The best model only achieved 72.9% accuracy. The final model for Deliverable 2 is saved in an HDF5 file as well as the lastest model after optimization attempts.
 
 
-#### There may be other things to change to optimize the deep neural network model. There is a variable "INCOME_AMT" that is categorical. It has a lot of information but because it's not numeric it doesn't add much. It would be better if the data could include actual income amount as a numeric field. I would consider looking at the correlation of every variable with the IS_SUCCESSFUL target variable. This may give more information in the decision about whether to include them in the model. Maybe the model could be run in a stepwise manner adding one variable at a time in the order of highest correlations. This may give some insight as to variables that are extraneous in the model performance. Maybe the ASK_AMT variable could be dichotomized for amounts=5000 and all others. 
+#### There may be other things to change to optimize the deep neural network model. There is a variable "INCOME_AMT" that is categorical. It has a lot of information but because it's not numeric it doesn't add much. It would be better if the data could include actual income amount as a numeric field. I would consider looking at the correlation of every variable with the IS_SUCCESSFUL target variable. This may give more information in the decision about whether to include them in the model. Maybe the model could be run in a stepwise manner adding one variable at a time in the order of highest correlations. This may give some insight as to variables that are extraneous in the model performance. Maybe the ASK_AMT variable could be dichotomized for amounts=5000 and all others. Below are the statistics and counts per amount for ASK_AMT:
+
+<br/>
+
+![des](./Resources/amtdes.png)          ![des](./Resources/amtcnt.png) 
+
+<br/>
