@@ -1,7 +1,7 @@
 # Overview of Neural Network Charity Analysis
 
 
-### Machine learning and neural networks will be used for the provided dataset to help create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup. The neural network results will be saved in an HDF5 file. After the first run the model will be attempted to be optimized 3 different ways to increase the accurace of the model.
+### Machine learning and neural networks will be used for the provided dataset to help create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup. The neural network results will be saved in an HDF5 file. After the first run the model will be attempted to be optimized 3 different ways to increase the accuracy of the model.
 
 <br/>
 
@@ -11,7 +11,7 @@
 
 -   What variable(s) are considered the target(s) for your model? 
 
-    #### The binary variable "IS_SUCCESSFUL" is the target feature for the model. So the model wil be predicting is the money was used effectively.
+    #### The binary variable "IS_SUCCESSFUL" is the target feature for the model. So the model wil be predicting if the money was used effectively.
 
 ``` python
     y = application_df["IS_SUCCESSFUL"].values
@@ -21,7 +21,7 @@
 
     #### The feature variables under consideration for the model are APPLICATION_TYPE, AFFILLIATION, ClASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
 
-    #### The two columns with mode than 10 categories (APPLICATION_TYPE and CLASSIFICATION) were binned into fewer categories.
+    #### The two columns with more than 10 categories (APPLICATION_TYPE and CLASSIFICATION) were binned into fewer categories.
 
 <br/>
 
@@ -48,7 +48,7 @@
 
 -   How many neurons, layers, and activation functions did you select for your neural network model, and why?
 
-    #### The number of neurons for the initial model is 45 for the first hidden layer and 20 for the second hidden layer. This was a starting point based on the number of input features after using OneHotEncoder to transform the categorical variables. The most common activation function was 'relu' so that was used as the starting function. The output function used was 'sigmoid' which is a common starting point in the Module.
+    #### The number of neurons for the initial model is 80 for the first hidden layer and 30 for the second hidden layer. This was a starting point based on the number of input features after using OneHotEncoder to transform the categorical variables. The most common activation function was 'relu' so that was used as the starting function. The output function used was 'sigmoid' which is a common starting point in the Module.
 
 ```python
     # Define the model - deep neural net, i.e., the number of input features and hidden nodes for each layer.
@@ -153,7 +153,7 @@
 <br/>
 
 ## Summary
-#### Overall the binary classifier model that was used to predict whether applicants will be successful if funded by Alphabet Soup did not perform as well as I had hoped. The initial model and the four other attempts did not improve the performance. The attempts included different binning of two of the variables with more than 10 classes. Other model modifications included varying the number of neurons per layer, varying the number of hidden layers, and changing the number of epochs. The best model only achieved 70.8% accuracy. 
+#### Overall the binary classifier model that was used to predict whether applicants will be successful if funded by Alphabet Soup did not perform as well as I had hoped. The initial model and the four other attempts did not improve the performance. The attempts included different binning of two of the variables with more than 10 classes. Other model modifications included varying the number of neurons per layer, varying the number of hidden layers, and changing the number of epochs. The best model only achieved 72.9% accuracy. 
 
 <br/>
 
