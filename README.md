@@ -99,7 +99,7 @@
 -   What steps did you take to try and increase model performance? 
 
     #### Here are the steps I took after the inital model run:
-    1. I thought to make the model run better with less variance it would be good to cut down on the binning for APPLICATION_TYPE and CLASSIFICATION. It changed both of these into binary variables with the lagest category vs other. The other paramenters remained the same as in Deliverable 2. The accuracy didn't improve: 70.5%
+    1. I thought to make the model run better with less variance it would be good to cut down on the binning for APPLICATION_TYPE and CLASSIFICATION. It changed both of these into binary variables with the largest category vs other. The other paramenters remained the same as in Deliverable 2. The accuracy didn't improve: 70.5%
 
     <br/>
 
@@ -155,6 +155,5 @@
 ## Summary
 #### Overall the binary classifier model that was used to predict whether applicants will be successful if funded by Alphabet Soup did not perform as well as I had hoped. The initial model and the four other attempts did not improve the performance. The attempts included different binning of two of the variables with more than 10 classes. Other model modifications included varying the number of neurons per layer, varying the number of hidden layers, and changing the number of epochs. The best model only achieved 72.9% accuracy. 
 
-<br/>
 
 #### There may be other things to change to optimize the deep neural network model. There is a variable "INCOME_AMT" that is categorical. It has a lot of information but because it's not numeric it doesn't add much. It would be better if the data could include actual income amount as a numeric field. I would consider looking at the correlation of every variable with the IS_SUCCESSFUL target variable. This may give more information in the decision about whether to include them in the model. Maybe tne model could be run in a stepwise manner adding one variable at a time in the order of highest correlations.
